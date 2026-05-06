@@ -2,10 +2,6 @@ import json
 
 FILE_NAME = "expenses.json"
 
-def save_expense(expenses):
-    with open(FILE_NAME,"w") as file:
-        json.dump(expenses, file)
-
 print("expense tracker")
 print("0. add ")
 print("1. show")
@@ -20,12 +16,27 @@ except FileNotFoundError:
 while True:
     choose = input("choose: ")
     if choose == "0":
+        price = input("amount: ")
+        try:
+           price = int(price)
+        except:
+            print("wrong type")
+            continue
+        cat = input("category: ")
+        if not cat:
+            print("input cannot be empty")
+            continue
+        des = input("description: ")
+        if not des:
+            print("input cannot be empty")
+            continue
         expenses.append({
-            "amount": input("amount: "),
-            "category": input("category: "),
-            "description": input("description: ")
+            "amount": price,
+            "category": cat,
+            "description": des
         })
-        save_expense(expenses)
+        with open(FILE_NAME,"w") as file:
+            json.dump(expenses, file)
         print("expense saved")
     elif choose == "1":
         if not expenses:
@@ -34,7 +45,10 @@ while True:
             for i in expenses:
                 print(f'{i["amount"]} | {i["category"]} | {i["description"]}')
     elif choose == "2":
-        pass
+        amt = 0
+        for i in expenses:
+            amt += int(i["amount"])
+        print(amt)
     elif choose == "3":
         break
     else:
