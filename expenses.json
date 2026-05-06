@@ -1,1 +1,1 @@
-[{"amount": "11", "category": "e", "description": "e"}, {"amount": "20", "category": "eee", "description": "e"}, {"amount": 1, "category": "eelo", "description": "ddelo"}, {"amount": 20, "category": "food", "description": "pizza"}]
+[{"amount": 20.0, "category": "food", "description": "pizza"}, {"amount": 45.0, "category": "food", "description": "sushi"}, {"amount": 24.5, "category": "transport", "description": "taxi"}, {"amount": 252.66, "category": "transport", "description": "gas"}]
